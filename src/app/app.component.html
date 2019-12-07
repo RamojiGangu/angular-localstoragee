@@ -1,0 +1,19 @@
+<form #studentform="ngForm">
+  <input type="text" name="firstname" [(ngModel)]="fn"> 
+  <br>
+  <input type="text" name="lastname" [(ngModel)]="ln"> <br>
+  <button (click)="addStudent(studentform.value)">Add Student</button>
+  <button (click)="updateStudent(studentform.value)">Update Student</button>
+  <table border="2">
+    <tr>
+      <th>firstname</th>
+      <th>lastname</th>
+    </tr>
+    <tr *ngFor="let s of students;let i=index">
+      <td>{{s.firstname}}</td>
+      <td>{{s.lastname}}</td>
+      <td><button (click)="editTask(s,i)">edit</button></td>
+      <td><button (click)="delTask(i)">Delete</button></td>
+    </tr>
+  </table>
+</form>
